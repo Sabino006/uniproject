@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style-beta.css' %}">
+</head>
+
+<body class="body-index">
+
+    <div class="index-cad">
+        <div class="index-cad-pt1">
+            <hr>
+            <h2>Cadastre-se</h2>
+            <hr>
+        </div>
+        <div class="formulario_cadastro">
+            <div class="imagem-cad">
+                <img src="../static/images/codicon--account.png" alt="">
+                <hr>
+            </div>
+            <form name="form-users" id="formUsers" method="post" action="/criar/cliente/">
+                {% if msg %}
+                    <div class="alert {{class}}">
+                        {{msg}}
+                    </div>
+                {% endif %}
+                {% csrf_token %}
+                <div class="nome-form-cad">
+                    <h2>Primeiro nome</h2>
+                    <input type="text" name="firstname" id="first_name" minlength="2" required>
+                </div><div class="nome-form-cad">
+                    <h2>Segundo nome</h2>
+                    <input type="text" name="lastname" id="last_name" minlength="2" required>
+                </div>
+                <div class="user-form-cad">
+                    <h2>Usuario</h2>
+                    <input type="text" name="user" minlength="2" id="usuario" required>
+                </div>
+                <div class="password-form-cad">
+                    <h2>Senha</h2>
+                    <input type="password" minlength="8" maxlength="16" name="password" id="password" required>
+                </div>
+                <div class="password-form-cad">
+                    <h2>Digite novamente a senha</h2>
+                    <input type="password" name="password-conf" id="password-conf" required>
+                </div>
+                <div class="email-form-cad">
+                    <h2>E-mail</h2>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="email-form-cad">
+                    <h2>CPF</h2>
+                    <input name="cpf_usuario" id="cpf" type="text" minlength="11" maxlength="11" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </div>
+                <div class="button-form-cad">
+                    <input type="submit" value="Cadastrar">
+                </div>
+            </form>
+            <div class="return">
+                <a href="/login/"><button type="submit">VOLTAR</button></a>
+            </div>
+            {% if perms.admin.admin_user %}
+            <div class="return">
+                <a href="/dashboard/admin/"><button type="submit">VOLTAR PARA O PAINEL ADMIN</button></a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+</body>
+</html>

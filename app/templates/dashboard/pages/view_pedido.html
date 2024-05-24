@@ -1,0 +1,65 @@
+{% load static %}
+{% if request.user.is_authenticated %}
+{% if perms.app.cliente_user %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style-beta.css' %}">
+    <link rel="stylesheet" href="../../../static/css/style-beta.css">
+</head>
+
+<body class="body-index">
+
+    <div class="index-cad">
+        <div class="index-cad-pt1">
+            <hr>
+            <h2>Cadastre um novo serviço</h2>
+            <hr>
+        </div>
+        <div class="view-services">
+            <table>
+                <tr class="table-principal">
+                    <th colspan="4">Serviços cadastrados</th>
+                </tr>
+                <tr class="services-conteudo">
+                <th> Nome </th>
+                <th> Telefone </th>
+                <th> Observação </th>
+                <th> Serviço solicitado </th>
+                </tr>
+                {% for view in view_pedidos %}
+                <tr class="services-conteudo">
+                <th> {{ view.nome_usuario }} </th>
+                <th> {{ view.telefone }} </th>
+                <th> {{ view.observacoes }} </th>
+                <th> {{ view.servico_pedido }} </th>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="return">
+                <a href="/dashboard/admin/"><button type="submit">VOLTAR PARA O PAINEL ADMIN</button></a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+{% else %}
+<link rel="stylesheet" href="{% static 'css/acesso.css' %}">
+<div class="acesso-negado">
+    <div class="acesso-negado-conteudo">
+        <img src="../../static/images/ri--alert-fill.png" alt="">
+        <h1>ACESSO NEGADO</h1>
+        <span>Você está sem acesso nessa pagina</span>
+        <div class="return">
+            <a href="/dashboard/"><button type="submit">VOLTAR PARA PAGINA DE LOGIN</button></a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endif %}

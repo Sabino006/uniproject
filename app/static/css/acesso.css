@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.acesso-negado {
+    background: url('https://i.pinimg.com/originals/2d/8e/c0/2d8ec08d2a34ac48fcad7824bf00d7d1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    color: red;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    font-size: 30px;
+}
+
+.acesso-negado-conteudo {
+    padding-top: 1em;
+    position: relative;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.726);
+    border-radius: 1em;
+}
+
+.acesso-negado-conteudo img{
+    width: 120px;
+}
+
+.return {
+    padding-top: 1em;
+}
+
+.return a button {
+    width: 50%;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    background: blue;
+    border: none;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    border-radius: 0.4em;
+    transition: all ease 0.4s;
+    cursor: pointer;
+}
+
+.return a button:hover {
+    background: rgb(0, 0, 80);
+    transition: all ease 0.4s;
+}
+
+@media (max-width: 900px) {
+    .acesso-negado-conteudo {
+        left: 5%;
+        width: 80%;
+        padding: 1em;
+    }
+
+    .return a button {
+        padding: 0;
+        width: 100%;
+        height: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .acesso-negado-conteudo {
+        font-size: 20px;
+        left: 2%;
+        width: 85%;
+
+    }
+
+    .return a button {
+        padding: 0;
+        width: 100%;
+        height: 40px;
+    }
+}

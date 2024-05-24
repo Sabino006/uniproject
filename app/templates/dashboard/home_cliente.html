@@ -1,0 +1,75 @@
+{% load static %}
+{% if request.user.is_authenticated %}
+{% if perms.app.cliente_user %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style-beta.css' %}">
+    <link rel="stylesheet" href="../../static/css/style-beta.css">
+</head>
+<body class="body-index">
+    <div class="index-conteudo">
+        <div class="index-cont-pt1">
+            <hr>
+            <h2>Seja bem vindo {{user.first_name}}</h2>
+            <hr>
+        </div>
+        <div class="index-cont-pt2">
+            <h2>Suas informações</h2>
+            <div class="user-db">
+                <span>Nome: {{user.first_name }} {{ user.last_name}}</span>
+                <span>E-MAIL: {{user.email}}</span>
+                <span>CPF: {{user.cpf_usuario}}</span>
+
+            </div>
+            <div class="menus">
+                <div class="menu-cliente">
+                    <div class="close">
+                        <a href="/logouts/"><button type="submit">SAIR</button></a>
+                    </div>
+                </div>
+                <div class="menu-cliente">
+                    <div class="change">
+                        <a href="/newpass/"><button type="submit">ALTERAR SENHA</button></a>
+                    </div>
+                </div>
+                <div class="menu-cliente">
+                    <div class="change">
+                        <a href="/create/pedido/"><button type="submit">PEDIR ORÇAMENTO</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if perms.admin.admin_user %}
+            <div class="menu-staff">
+                <div class="permission-staff">
+                    <div class="admin">
+                        <hr>
+                        <h2>Você tem permissão de administrador</h2>
+                        <hr>
+                        <a href="/dashboard/admin/"><button type="submit">PAINEL ADMIN</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+{% else %}
+    <link rel="stylesheet" href="{% static 'css/acesso.css' %}">
+    <link rel="stylesheet" href="../../static/css/acesso.css">
+    <div class="acesso-negado">
+        <div class="acesso-negado-conteudo">
+            <img src="../../static/images/ri--alert-fill.png" alt="">
+            <h1>ACESSO NEGADO</h1>
+            <span>Você está sem acesso nessa pagina</span>
+            <div class="return">
+                <a href="/dashboard/"><button type="submit">VOLTAR PARA PAGINA DE LOGIN</button></a>
+            </div>
+        </div>
+    </div>
+{% endif %}
