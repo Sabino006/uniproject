@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'sistema',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': '@Pablo@S4b1n0@',
+        'PASSWORD': 'passworddb',
         'PORT': '3306',
         'OPTIONS': {
             'init_command' : 'SET default_storage_engine=InnoDB'
