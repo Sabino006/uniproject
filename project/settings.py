@@ -81,8 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sistema',
         'HOST': 'localhost',
-        'USER': 'Sabino',
-        'PASSWORD': 'Sabino@sql@',
+        'USER': 'user',
+        'PASSWORD': 'senha',
         'PORT': '3306',
         'OPTIONS': {
             'init_command' : 'SET default_storage_engine=InnoDB'
